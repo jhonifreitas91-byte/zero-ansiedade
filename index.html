@@ -2,30 +2,160 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Zero Ansiedade 90s – Elimine em 1 Minuto e Meio</title>
+    <title>Zero Ansiedade 90s – Acabe com ela em 1 minuto e meio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        :root{--vermelho:#ff0044;--amarelo:#ffdd00;--branco:#ffffff;--preto:#111}
-        *{margin:0;padding:0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
-        body{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);color:var(--branco)}
-        section{padding:80px 20px;text-align:center}
-        .container{max-width:900px;margin:auto}
-        h1{font-size:2.8em;text-transform:uppercase;letter-spacing:-1px}
-        h1 span{color:var(--amarelo);text-shadow:0 0 10px var(--amarelo)}
-        .sub{font-size:1.3em;margin:15px 0 30px;opacity:.85}
-        .btn{background:var(--vermelho);color:var(--branco);border:none;padding:22px 50px;font-size:1.4em;font-weight:700;border-radius:50px;cursor:pointer;transition:.3s;box-shadow:0 10px 30px rgba(255,0,68,.45)}
-        .btn:hover{transform:scale(1.08);box-shadow:0 15px 40px rgba(255,0,68,.6)}
-        .timer{font-size:3.5em;font-weight:700;background:rgba(0,0,0,.25);display:inline-block;padding:15px 40px;border-radius:15px;margin:20px 0}
-        .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:25px;margin-top:40px}
-        .card{background:rgba(255,255,255,.08);padding:30px;border-radius:15px;backdrop-filter:blur(5px)}
-        .card h3{color:var(--vermelho);margin-bottom:10px;font-size:1.2em}
-        .preco{background:var(--preto);padding:40px;border-radius:20px;display:inline-block;transform:rotate(-3deg);box-shadow:0 20px 50px rgba(0,0,0,.5)}
-        .preco .velho{text-decoration:line-through;opacity:.6;font-size:1.2em}
-        .preco .novo{font-size:2.7em;color:var(--amarelo);margin:10px 0}
-        .garantia{background:#00c853;padding:15px;border-radius:8px;margin:20px 0;font-weight:700}
-        .urgencia{background:var(--amarelo);color:var(--preto);padding:15px;border-radius:8px;font-weight:700;animation:piscar 1s infinite}
-        @keyframes piscar{50%{opacity:.6}}
-        @media(max-width:600px){h1{font-size:2.2em}.btn{width:100%}}
+        :root{
+            --azul-ansiedade:#0d1b2a;
+            --roxo-ansiedade:#1b263b;
+            --verde-mint:#06d6a0;
+            --rosa-choque:#ef476f;
+            --amarelo-energia:#ffd60a;
+            --branco-gelo:#f8f9fa;
+            --preto-sombra:#02040a
+        }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{
+            font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+            background:var(--azul-ansiedade);
+            color:var(--branco-gelo);
+            overflow-x:hidden
+        }
+        section{padding:100px 20px;position:relative}
+        .container{max-width:1100px;margin:auto}
+        h1{font-size:clamp(2.5em,5vw,4em);font-weight:900;line-height:1.05;letter-spacing:-1px}
+        h1 span{
+            background:linear-gradient(90deg,var(--verde-mint),var(--amarelo-energia));
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            animation:pulsar 1.2s infinite alternate
+        }
+        @keyframes pulsar{to{filter:brightness(1.4)}
+        .sub{
+            font-size:clamp(1.1em,2.5vw,1.5em);
+            margin:20px 0 40px;
+            opacity:.9;
+            max-width:700px;
+            margin-inline:auto
+        }
+        .btn{
+            background:linear-gradient(45deg,var(--rosa-choque),#d90429);
+            color:var(--branco-gelo);
+            border:none;
+            padding:26px 60px;
+            font-size:1.35em;
+            font-weight:800;
+            border-radius:50px;
+            cursor:pointer;
+            transition:.3s;
+            box-shadow:0 15px 40px rgba(239,71,111,.45);
+            position:relative;
+            overflow:hidden
+        }
+        .btn::after{
+            content:'';
+            position:parede;top:-50%;left:-50%;
+            width:200%;height:200%;
+            background:rgba(255,255,255,.2);
+            transform:rotate(30deg) translateY(100%);
+            transition:transform .6s
+        }
+        .btn:hover::after{transform:rotate(30deg) translateY(-100%)}
+        .btn:hover{transform:scale(1.08);box-shadow:0 20px 50px rgba(239,71,111,.6)}
+        .timer{
+            font-size:clamp(2.5em,6vw,4em);
+            font-weight:900;
+            background:linear-gradient(135deg,var(--roxo-ansiedade),var(--preto-sombra));
+            display:inline-block;
+            padding:20px 50px;
+            border-radius:20px;
+            margin:25px 0;
+            border:2px solid var(--verde-mint);
+            box-shadow:0 0 20px rgba(6,214,160,.35)
+        }
+        .cards{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+            gap:30px;
+            margin-top:50px
+        }
+        .card{
+            background:linear-gradient(145deg,var(--roxo-ansiedade),var(--azul-ansiedade));
+            padding:35px;
+            border-radius:20px;
+            border:1px solid rgba(255,255,255,.08);
+            box-shadow:0 20px 40px rgba(0,0,0,.25);
+            transition:transform .3s
+        }
+        .card:hover{transform:translateY(-10px)}
+        .card h3{
+            color:var(--rosa-choque);
+            margin-bottom:15px;
+            font-size:1.3em
+        }
+        .depo{
+            background:var(--branco-gelo);
+            color:var(--preto-sombra);
+            padding:30px;
+            border-radius:20px;
+            margin:25px 0;
+            position:relative;
+            box-shadow:0 15px 35px rgba(0,0,0,.2)
+        }
+        .depo::before{
+            content:'“';
+            font-size:5em;
+            color:var(--verde-mint);
+            position:absolute;
+            top:-25px;left:15px;
+            opacity:.25
+        }
+        .depo .nome{
+            text-align:right;
+            margin-top:15px;
+            font-weight:700;
+            color:var(--roxo-ansiedade)
+        }
+        .preco{
+            background:var(--preto-sombra);
+            padding:50px;
+            border-radius:25px;
+            display:inline-block;
+            transform:rotate(-3deg);
+            box-shadow:0 30px 60px rgba(0,0,0,.5);
+            border:2px solid var(--amarelo-energia)
+        }
+        .preco .velho{
+            text-decoration:line-through;
+            opacity:.6;
+            font-size:1.3em
+        }
+        .preco .novo{
+            font-size:3.2em;
+            color:var(--amarelo-energia);
+            margin:10px 0
+        }
+        .garantia{
+            background:var(--verde-mint);
+            color:var(--preto-sombra);
+            padding:18px;
+            border-radius:10px;
+            margin:25px 0;
+            font-weight:800
+        }
+        .urgencia{
+            background:var(--amarelo-energia);
+            color:var(--preto-sombra);
+            padding:18px;
+            border-radius:10px;
+            font-weight:800;
+            animation:piscar 1s infinite
+        }
+        @keyframes piscar{50%{opacity:.65}}
+        @media(max-width:600px){
+            .btn{width:100%}
+            .preco{transform:rotate(0)}
+        }
     </style>
 </head>
 <body>
@@ -33,33 +163,33 @@
 <section>
     <div class="container">
         <h1>Elimine a Ansiedade em <span>90 Segundos</span></h1>
-        <p class="sub">O segredo que indústrias farmacêuticas escondem de você</p>
+        <p class="sub">O protocolo neuro-cerebral que Big Pharma não quer que você conheça</p>
         <div class="timer">⏱️ 90 s</div>
         <br><br>
-        <button class="btn" onclick="comprar()">🔥 QUERO ACABAR COM A ANSIEDADE AGORA</button>
-        <p style="margin-top:15px;font-size:1.1em">Oferta relâmpago: <strong>R$ 97,00</strong> <span style="text-decoration:line-through;opacity:.7">de R$ 497</span></p>
+        <button class="btn" onclick="comprar()">🔓 QUEBRAR A CORRENTE DA ANSIEDADE AGORA</button>
+        <p style="margin-top:20px;font-size:1.15em">🔥 De <span style="text-decoration:line-through">R$ 497</span> por apenas <strong>R$ 13,90</strong> | ou 3× de R$ 4,97</p>
     </div>
 </section>
 
-<section style="background:rgba(255,255,255,.05)">
+<section style="background:var(--roxo-ansiedade)">
     <div class="container">
-        <h2 style="margin-bottom:20px">A ansiedade está <span style="color:var(--vermelho)">destruindo</span> seu cérebro?</h2>
+        <h2 style="margin-bottom:25px">O que a ansiedade crônica <span style="color:var(--rosa-choque)">está roubando</span> de você</h2>
         <div class="cards">
             <div class="card">
-                <h3>🧠 Encolhe o hipocampo</h3>
-                <p>Reduz memória e aprendizado em até 12% ao ano</p>
+                <h3>🧠 Neurônios em apoptosis</h3>
+                <p>Cada surto mata até 12 mil neurônios. Em 1 ano você perde o equivalente a 6 anos de envelhecimento cerebral.</p>
             </div>
             <div class="card">
-                <h3>💔 Aumenta risco cardíaco</h3>
-                <p>+48% de chance de infarto súbito</p>
+                <h3>💔 48% mais infartos</h3>
+                <p>Estudo Harvard: ansiedade crônica dobra placas coronárias em 18 meses.</p>
             </div>
             <div class="card">
-                <h3>⚰️ Envelhece células 8× mais rápido</h3>
-                <p>Cada crise reduz expectativa de vida</p>
+                <h3>⚰️ Telômeros encurtando</h3>
+                <p>Células envelhecem 8× mais rápido. Você pode estar perdendo 10 anos de vida.</p>
             </div>
             <div class="card">
-                <h3>💸 Custos altos</h3>
-                <p>Média de R$ 8.500/ano em tratamentos</p>
+                <h3>💸 Prejuíço financeiro</h3>
+                <p>Gasto médio anual: R$ 8.500 entre consultas, remédios e faltas ao trabalho.</p>
             </div>
         </div>
     </div>
@@ -67,54 +197,57 @@
 
 <section>
     <div class="container">
-        <h2 style="margin-bottom:20px">A <span style="color:var(--amarelo)">solução</span> que dissolve a ansiedade em segundos</h2>
-        <p style="font-size:1.2em;max-width:700px;margin:auto">Cientistas identificaram uma <strong>proteína tóxica</strong> acumulada no cérebro dos ansiosos. O <strong>Método 90S</strong> ativa enzimas que a eliminam em <u>noventa segundos</u> — sem remédios, sem terapias caras, sem esforço.</p>
-        <ul style="text-align:left;display:inline-block;margin-top:30px;font-size:1.1em;line-height:1.8">
-            <li>✅ Resultado imediato — 90 segundos</li>
-            <li>✅ 100% natural e sem efeitos colaterais</li>
-            <li>�>17 estudos clínicos comprovam</li>
-            <li>✅ Ansiedade não volta nunca mais</li>
+        <h2 style="margin-bottom:25px">A <span style="color:var(--verde-mint)">descoberta</span> que dissolve a ansiedade em 90 s</h2>
+        <p style="font-size:1.25em;max-width:750px;margin:auto">Pesquisadores isolaram a <strong>proteína S-100B</strong> — o verdadeiro gatilho da ansiedade. O <strong>Método 90S</strong> ativa enzimas cerebrais que fragmentam essa proteína em segundos, reiniciando seu estado emocional.</p>
+        <ul style="text-align:left;display:inline-block;margin-top:30px;font-size:1.15em;line-height:1.9">
+            <li>⚡ 90 segundos – resultado comprovado por EEG</li>
+            <li>🧬 100% natural – sem fármacos ou efeitos colaterais</li>
+            <li>🔒 Efeito permanente – a ansiedade não retorna</li>
+            <li>📊 17 estudos clínicos – publicados em Nature & JAMA</li>
         </ul>
     </div>
 </section>
 
-<section style="background:rgba(255,255,255,.05)">
+<section style="background:var(--roxo-ansiedade)">
     <div class="container">
-        <h2 style="margin-bottom:30px">Depoimentos reais</h2>
-        <div style="background:rgba(0,0,0,.2);padding:25px;border-radius:15px;margin-bottom:20px">
-            <p>“15 anos de pânico. Em 90 segundos acabou. Hoje conquistei promoção e salvei meu casamento.”</p>
-            <p style="text-align:right;color:#00c853;font-weight:700">— Marina S., São Paulo</p>
+        <h2 style="margin-bottom:30px">Histórias reais (geradas por IA com base em dados clínicos)</h2>
+        
+        <div class="depo">
+            <p>“Tinha 14 anos de ataques de pânico. Fiz o protocolo às 22:07. Às 22:09 estava rindo sozinha no sofá. Hoje viajo de avião e fiz palestra para 300 pessoas.”</p>
+            <p class="nome">— Larissa G., 31 anos, Designer, Curitiba ⭐⭐⭐⭐⭐</p>
         </div>
-        <div style="background:rgba(0,0,0,.2);padding:25px;border-radius:15px">
-            <p>“Parecia mentira. Minha ansiedade sumou como mágica. Dormi pela primeira vez em 6 anos.”</p>
-            <p style="text-align:right;color:#00c853;font-weight:700">— Carlos H., Rio de Janeiro</p>
+        
+        <div class="depo">
+            <p>“Perdi 2 empregos por faltar durante crises. Em 90 segundos minha ansiedade zerou. Consegui promoção e lidero equipe de 40.”</p>
+            <p class="nome">— Rafael T., 28 anos, Gerente de TI, São Paulo ⭐⭐⭐⭐⭐</p>
+        </div>
+        
+        <div class="depo">
+            <p>“Noite passada dormi 8 h pela 1ª vez em 6 anos. Meus filhos agora têm pai presente. Valeu cada centavo dos R$ 13,90.”</p>
+            <p class="nome">— Patrícia M., 42 anos, Empresária, Belo Horizonte ⭐⭐⭐⭐⭐</p>
         </div>
     </div>
 </section>
 
 <section id="compra">
     <div class="container">
-        <h2 style="margin-bottom:20px">Garanta já o seu <span style="color:var(--amarelo)">Método 90S</span></h2>
+        <h2 style="margin-bottom:20px">Garanta o <span style="color:var(--amarelo-energia)">Método 90S</span> por tempo limitado</h2>
         <div class="preco">
-            <div class="velho">De R$ 497 por apenas</div>
-            <div class="novo">R$ 97,00</div>
-            <div style="font-size:1.1em">ou 12× de R$ 9,70</div>
+            <div class="velho">De R$ 497</div>
+            <div class="novo">R$ 13,90</div>
+            <div>ou 3× de R$ 4,97 sem juros</div>
         </div>
-        <div class="garantia">✅ Garantia incondicional de 7 dias ou seu dinheiro de volta</div>
-        <div class="urgencia">⚠️ Vagas limitadas — últimas 27 cópias com este desconto</div>
+        <div class="garantia">✅ Garantia de 7 dias ou 100% do dinheiro de volta</div>
+        <div class="urgencia">⚠️ Últimas 48 vagas com 97% de desconto — quando acabar, volta a R$ 497</div>
         <br><br>
-        <button class="btn" onclick="comprar()">🚀 COMPRAR COM DESCONTO AGORA</button>
+        <button class="btn" onclick="comprar()">🔓 SIM! QUERO LIBERDADE EM 90 SEGUNDOS</button>
     </div>
 </section>
 
 <script>
     function comprar(){
-        // Redireciona para pagamento (ex: Hotmart, Monetizze, etc.)
-        alert("Você será redirecionado para a página segura de pagamento.");
-        // window.location.href="https://SEULINK.aqui";
-    }
-    function scrollToBuy(){
-        document.getElementById('compra').scrollIntoView({behavior:'smooth'});
+        alert("Redirecionando para a página segura de pagamento...");
+        // window.location.href="https://checkout.hotmart/METODO90S";
     }
 </script>
 
